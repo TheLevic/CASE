@@ -22,12 +22,20 @@ class Case:
             print(self.text);
             return self.text;
 
+    def startRecording(self):
+        #Recording on the raspberry pi will go here.
+        pass;
+
     def doSomethingWithText(self):
-        options = {};
+        options = {"option 1": "start recording"};
         #We want to check if we said "hey Case start recording"
         try:
             if (self.getText() == "hey " + self.name or "hey " + self.name.capitalize()):
                 self.speak("Yes, what do you want me to do?");
+                option = self.getText();
+                if (option == options["option 1"]):
+                    self.speak("Starting to record");
+                    self.startRecording(); 
             else:
                 self.speak("Sorry, I didn't get that. Please try again.");
         except:
