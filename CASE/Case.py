@@ -48,5 +48,6 @@ if __name__ == "__main__":
     #Then we want Case to start recording
 
     #Once we tell Case to "Stop Recording" he will stop and send the video to the server, have a time limit of 5 minutes
+    #Yes
     Case = Case();
     Case.doSomethingWithText();
