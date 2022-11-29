@@ -1,4 +1,4 @@
-import "./App.css";
+import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Heading from "./components/Heading";
 import Input from "./components/Input";

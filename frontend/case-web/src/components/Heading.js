@@ -1,7 +1,7 @@
 import React from "react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import { Alert, Badge, Button } from "react-bootstrap";
+import { Alert } from "react-bootstrap";
 
 const Heading = () => {
   return (
