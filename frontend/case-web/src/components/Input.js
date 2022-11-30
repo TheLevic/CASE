@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, FormControl, InputGroup } from "react-bootstrap";
+import { Button, Col, Row, FormControl, InputGroup } from "react-bootstrap";
 import { useState } from "react";
 
 const Input = () => {
@@ -19,27 +19,34 @@ const Input = () => {
 
   return (
     <div className="Input">
-      <InputGroup className="mb-3">
-        <FormControl
-          value={title}
-          type="text"
-          placeholder="Enter a word"
-          onChange={handleTitle}
-        />
-        <FormControl
-          value={date}
-          onChange={handleDate}
-          type="date"
-          placeholder="Filter by date"
-        />
-        <FormControl
-          value={category}
-          onChange={handleCategory}
-          type="text"
-          placeholder="Filter by category"
-        />
-        <Button onClick={console.log(category)}>Submit</Button>
-      </InputGroup>
+      <Row lg={12}>
+        <InputGroup>
+          <Col
+            lg={12}
+            className="d-flex justify-content-center align-items-center"
+          >
+            <FormControl
+              value={title}
+              type="text"
+              placeholder="Title"
+              onChange={handleTitle}
+            />
+            <FormControl
+              value={date}
+              onChange={handleDate}
+              type="date"
+              placeholder="Date"
+            />
+            <FormControl
+              value={category}
+              onChange={handleCategory}
+              type="text"
+              placeholder="Category"
+            />
+            <Button onClick={console.log(category)}>Submit</Button>
+          </Col>
+        </InputGroup>
+      </Row>
     </div>
   );
 };
