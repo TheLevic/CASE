@@ -27,11 +27,13 @@ const Input = () => {
           onChange={handleTitle}
         />
         <FormControl
+          value={date}
           onChange={handleDate}
           type="date"
           placeholder="Filter by date"
         />
         <FormControl
+          value={category}
           onChange={handleCategory}
           type="text"
           placeholder="Filter by category"
