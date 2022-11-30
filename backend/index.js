@@ -1,8 +1,11 @@
 const express = require("express");
+const fs = require("fs");
+const path = require("path");
+
 const app = express();
 
-app.get("/", (request, response) => {
-  response.send("<h1>Phonebook</h1>");
+app.get("/video", (req, res) => {
+  res.send("Hello World!");
 });
 
 const PORT = 3001;

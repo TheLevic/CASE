@@ -43,7 +43,7 @@ const Input = () => {
               type="text"
               placeholder="Category"
             />
-            <Button onClick={console.log(category)}>Submit</Button>
+            <Button onClick={console.log(category)}>Search</Button>
           </Col>
         </InputGroup>
       </Row>
