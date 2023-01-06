@@ -1,0 +1,25 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap");
+
+html {
+  font-size: 125%;
+}
+
+* {
+  font-family: "Inter";
+}
+.videos {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: 2rem;
+  column-gap: 1em;
+  height: 400px;
+}
+.one {
+  background-color: orange;
+}
+.two {
+  background-color: red;
+}
+.three {
+  background-color: green;
+}
