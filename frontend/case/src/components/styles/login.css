@@ -1,0 +1,25 @@
+.login-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 10rem;
+}
+
+.textbox {
+  border: 5px solid #0f1927;
+  display: flex;
+  padding-bottom: 2rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.textbox input {
+  width: 20rem;
+  height: 2rem;
+  margin: 0.5rem;
+  border: 1px solid #59c9a5;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+}
