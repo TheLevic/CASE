@@ -1,0 +1,41 @@
+{
+  "name": "case",
+  "version": "1.0.0",
+  "description": "A tiny self-improvement robot",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheLevic/CASE.git"
+  },
+  "keywords": [
+    "Self-Improvement",
+    "Self",
+    "Improvement",
+    "Robot",
+    "Tiny",
+    "Fun",
+    "Productivity"
+  ],
+  "author": "Levi Crider",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TheLevic/CASE/issues"
+  },
+  "homepage": "https://github.com/TheLevic/CASE#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "colors": "^1.4.0",
+    "concurrently": "^7.6.0",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-async-handler": "^1.2.0",
+    "jsonwebtoken": "^9.0.0",
+    "mongoose": "^6.8.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
