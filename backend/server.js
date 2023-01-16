@@ -2,7 +2,7 @@ const dotenv = require("dotenv").config();
 const colors = require("colors");
 const express = require("express");
 const PORT = process.env.PORT || 8000;
-// const { errorHandler } = require("./middleware/errorMiddleware");
+const { errorHandler } = require("./middleware/errorMiddleware");
 const connectDB = require("./config/db");
 
 // Connect to DB
@@ -19,6 +19,6 @@ app.get("/", (req, res) => {
 //Routes
 app.use("/api/users", require("./routes/videoRoutes"));
 
-// app.use(errorHandler);
+app.use(errorHandler);
 
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
