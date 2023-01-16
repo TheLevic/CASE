@@ -1,28 +1,24 @@
+const dotenv = require("dotenv").config();
+const colors = require("colors");
 const express = require("express");
-require("dotenv").config();
-const mongoose = require("mongoose");
-const videoRoutes = require("./routes/videoRoutes");
+const PORT = process.env.PORT || 8000;
+// const { errorHandler } = require("./middleware/errorMiddleware");
+const connectDB = require("./config/db");
+
+// Connect to DB
+connectDB();
 
 const app = express();
 
-//Middleware (seeing if our request has a body)
 app.use(express.json());
-
-//Using all of the routes from videoRoutes file
-app.use((req, res, next) => {
-  console.log(req.path, req.method);
-  next();
+app.use(express.urlencoded({ extended: false }));
+app.get("/", (req, res) => {
+  res.status(200).json({ message: "Welcome to api" });
 });
 
-//Use all of the routes from our routes file
-app.use("/api/videos", videoRoutes);
+//Routes
+app.use("/api/users", require("./routes/videoRoutes"));
 
-//Connect to MONGODB
-mongoose
-  .connect(process.env.MONGO_URI)
-  .then(() => {
-    app.listen(process.env.PORT, () => {
-      console.log(`Connected to DB and listening on port ${process.env.PORT}`);
-    });
-  })
-  .catch((err) => console.log(err));
+// app.use(errorHandler);
+
+app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
