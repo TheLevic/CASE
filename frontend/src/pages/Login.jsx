@@ -1,7 +1,11 @@
+import Header from "../components/Header";
+import LoginForm from "../components/LoginForm";
+
 function Login() {
   return (
     <>
-      <h1>Hello</h1>
+      <Header />
+      <LoginForm />
     </>
   );
 }

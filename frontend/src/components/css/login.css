@@ -1,0 +1,40 @@
+html {
+  font-size: 125%;
+} /*20px*/
+* {
+  font-family: "Inter";
+}
+
+.container {
+  padding: 2rem;
+  margin: 1rem;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+form {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  padding: 4rem;
+  border: 0.5em solid #59c9a5;
+}
+
+.login-input {
+  margin: 0.5rem;
+  padding: 1rem;
+  align-self: stretch;
+}
+.login-button {
+  padding: 1rem;
+  align-self: stretch;
+  margin: 0.5rem;
+  background-color: #59c9a5;
+  border-radius: 2rem;
+  border: none;
+  font-size: 1rem;
+  font-weight: bold;
+}
