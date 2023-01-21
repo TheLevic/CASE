@@ -1,2 +1,3 @@
 # Spot
-Tiny Robot self improvement robot that automates a video diary for you.
+
+## Say Hello To The Tiny Self-Imrpovement Robot

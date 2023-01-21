@@ -1,5 +1,7 @@
-import "./styles/heading.css";
-export default function Heading() {
+import React from "react";
+import "./css/header.css";
+
+function Header() {
   return (
     <div>
       <heading>
@@ -30,3 +32,5 @@ export default function Heading() {
     </div>
   );
 }
+
+export default Header;
