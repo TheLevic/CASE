@@ -18,11 +18,7 @@ function Header() {
             <button className="button-heading">Images</button>
           </li>
           <li>
-            <input
-              type="text"
-              placeholder="Search by title, tag, or date"
-              className="search-box"
-            />
+            <input type="text" placeholder="Search" className="search-box" />
           </li>
           <li>
             <button className="button-heading">Search</button>
