@@ -4,7 +4,7 @@ import "./css/header.css";
 function Header() {
   return (
     <div>
-      <heading>
+      <header>
         <div className="heading-logo">
           <a href="/#" className="logo-heading">
             Case
@@ -24,7 +24,7 @@ function Header() {
             <button className="button-heading">Search</button>
           </li>
         </ul>
-      </heading>
+      </header>
     </div>
   );
 }
