@@ -21,7 +21,9 @@ function LoginForm() {
       })
       .then((response) => {
         console.log(response);
-      });
+        localStorage.setItem("jwt", response.data.token);
+      })
+      .catch((error) => console.error(error));
   };
 
   return (
