@@ -35,12 +35,10 @@ const registerUser = asyncHandler(async (req, res) => {
   });
 
   if (user) {
-    res.status(201).json({
-      _id: user._id,
-      name: user.username,
-      email: user.email,
+    res.status(200).json({
       token: generateToken(user._id),
     });
+    return;
   } else {
     res.status(400);
     throw new error("Invalid user data");
@@ -81,7 +79,7 @@ const getMe = asyncHandler(async (req, res) => {
   res.status(200).json(user);
 });
 
-const generateToken = (id) => {
+const generateToken = (id, username) => {
   return jwt.sign({ id }, process.env.JWT_SECRET, {
     expiresIn: "15d",
   });
