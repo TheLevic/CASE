@@ -64,6 +64,7 @@ function RegisterForm() {
               className="text-md p-2 m-2 border-green-400 border-2 rounded-lg w-full md:w-full"
               type="password"
               placeholder="Create password"
+              name="password"
             />
             <input
               className="text-md p-2 m-2 border-green-400 border-2 rounded-lg w-full md:w-full"
@@ -72,16 +73,8 @@ function RegisterForm() {
               placeholder="Confirm Password"
               value={formData.password}
               onChange={onChange}
-              name="password"
             />
-            <input
-              className="login-input"
-              type="password"
-              placeholder="Confirm password"
-              value={formData.password2}
-              onChange={onChange}
-              name="password2"
-            />
+
             <button className="p-2 m-2 rounded-lg bg-green-400 text-white font-bold w-full ">
               Submit
             </button>
