@@ -27,12 +27,12 @@ function LoginForm() {
 
   return (
     <div>
-      <div className="grid grid-cols-3 border ">
-        <div className="w-4/5 min-h-screen bg-gradient-to-t from-green-700 to-green-400 "></div>
-        <div className="col-span-2">
+      <div className="grid grid-cols-3 ">
+        <div className="w-4/5 h-screen bg-gradient-to-t from-green-700 to-green-400 "></div>
+        <div className="col-span-2 ">
           <form
             onSubmit={whenSubmit}
-            className="flex flex-col pt-4 mr-6 md:p-4 md:m-4 md:align-middle "
+            className="flex flex-col pt-4 m-4 align-middle md:p-4 md:m-4 md:align-middle "
           >
             <h1 className="text-lg font-bold text-green-500 md:text-3xl">
               Welcome To Case
@@ -45,11 +45,11 @@ function LoginForm() {
             />
             <input
               type="password"
-              placeholder="Create password"
+              placeholder="Enter password"
               onChange={updatePassword}
               className="text-sm p-2 m-2 border-green-400 border-2 rounded-lg w-full md:w-full"
             />
-            <button className=" p-2 m-2 rounded-lg bg-green-400 text-white font-bold w-full md:w-auto">
+            <button className=" p-2 m-2 rounded-lg bg-green-400 text-white font-bold w-full ">
               Submit
             </button>
           </form>
