@@ -28,7 +28,11 @@ function RegisterForm() {
         email,
         password,
       };
-      axios.post("http://localhost:8000/api/users/register", userData);
+      axios
+        .post("http://localhost:8000/api/users/register", userData)
+        .then((response) => {
+          localStorage.setItem("jwt", response.data.token);
+        });
     }
   };
 
@@ -65,14 +69,16 @@ function RegisterForm() {
               type="password"
               placeholder="Create password"
               name="password"
+              value={formData.password}
+              onChange={onChange}
             />
             <input
               className="text-md p-2 m-2 border-green-400 border-2 rounded-lg w-full md:w-full"
               type="password"
               name="password2"
-              placeholder="Confirm Password"
-              value={formData.password}
+              value={formData.password2}
               onChange={onChange}
+              placeholder="Confirm Password"
             />
 
             <button className="p-2 m-2 rounded-lg bg-green-400 text-white font-bold w-full ">
