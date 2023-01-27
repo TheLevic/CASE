@@ -29,8 +29,8 @@ function LoginForm() {
           navigate("/");
         }
       })
-      .catch((response) => {
-        toast.error(response.response.data.message);
+      .catch((error) => {
+        toast.error(error);
       });
   };
 

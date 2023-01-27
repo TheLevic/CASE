@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { getUserName, toggleLoggedIn } from "../redux/user";
+import { toast } from "react-toastify";
 
 function Home() {
   const user = useSelector((state) => state.user);
@@ -19,12 +20,16 @@ function Home() {
           dispatch(toggleLoggedIn());
           dispatch(getUserName(response.data.name));
         })
-        .catch((error) => console.log(error));
+        .catch((error) => toast.error(error));
     }
   }, [user.isLoggedIn, dispatch]);
 
   if (user.isLoggedIn) {
-    return <HeaderLoggedIn />;
+    return (
+      <>
+        <HeaderLoggedIn />
+      </>
+    );
   } else {
     return <HeaderNotLoggedIn />;
   }
