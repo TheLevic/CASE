@@ -1,11 +1,13 @@
 import axios from "axios";
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { getUserName, toggleLoggedIn } from "../redux/user";
 
 function RegisterForm() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     username: "",
@@ -37,11 +39,11 @@ function RegisterForm() {
       axios
         .post("http://localhost:8000/api/users/register", userData)
         .then((response) => {
-          console.log(response);
           localStorage.setItem("jwt", response.data.token);
           dispatch(getUserName(username));
           dispatch(toggleLoggedIn());
           toast.success("Account created!");
+          navigate("/");
         })
         .catch((error) => {
           toast.error(error.message);

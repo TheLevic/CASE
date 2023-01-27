@@ -1,5 +1,5 @@
 import React from "react";
-function Header() {
+function HeaderLoggedIn() {
   return (
     <div>
       <header className=" bg-gray-100 grid grid-cols-2">
@@ -37,4 +37,4 @@ function Header() {
   );
 }
 
-export default Header;
+export default HeaderLoggedIn;
