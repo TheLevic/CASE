@@ -1,5 +1,6 @@
 import React from "react";
-function Header() {
+import LinkButton from "./LinkButton";
+function HeaderLoggedIn() {
   return (
     <div>
       <header className=" bg-gray-100 grid grid-cols-2">
@@ -10,18 +11,9 @@ function Header() {
           CASE
         </a>
         <div className="flex flex-row justify-end items-center m-1 gap-4 lg:gap-6">
-          <a
-            href="/"
-            className="bg-green-400 rounded-lg p-1 md:p-2 text-white font-medium lg:text-2xl"
-          >
-            Videos
-          </a>
-          <a
-            href="/"
-            className="bg-green-400 rounded-lg p-1 md:p-2 text-white font-medium lg:text-2xl"
-          >
-            Images
-          </a>
+          <LinkButton link="/" text="Videos" />
+          <LinkButton link="/" text="Images" />
+
           <input
             type="text"
             className="hidden sm:block w-full p-1 md:p-2 font-medium lg:text-2xl rounded-lg"
@@ -37,4 +29,4 @@ function Header() {
   );
 }
 
-export default Header;
+export default HeaderLoggedIn;

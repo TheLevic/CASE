@@ -1,7 +1,14 @@
 import axios from "axios";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import { getUserName, toggleLoggedIn } from "../redux/user";
 
 function RegisterForm() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     username: "",
     email: "",
@@ -20,8 +27,9 @@ function RegisterForm() {
 
   const onSubmit = (e) => {
     e.preventDefault();
+
     if (password !== password2) {
-      console.log("Passwords don't match");
+      toast.error("Passwords don't match");
     } else {
       const userData = {
         username,
@@ -32,6 +40,13 @@ function RegisterForm() {
         .post("http://localhost:8000/api/users/register", userData)
         .then((response) => {
           localStorage.setItem("jwt", response.data.token);
+          dispatch(getUserName(username));
+          dispatch(toggleLoggedIn());
+          toast.success("Account created!");
+          navigate("/");
+        })
+        .catch((error) => {
+          toast.error(error.message);
         });
     }
   };

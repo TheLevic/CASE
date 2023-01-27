@@ -1,9 +1,13 @@
 import axios from "axios";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 function LoginForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const navigate = useNavigate();
 
   const updatePassword = (e) => {
     setPassword(e.target.value);
@@ -19,10 +23,15 @@ function LoginForm() {
         password: password,
       })
       .then((response) => {
-        console.log(response);
         localStorage.setItem("jwt", response.data.token);
+        if (response.status === 201) {
+          toast.success("Logged in");
+          navigate("/");
+        }
       })
-      .catch((error) => console.error(error));
+      .catch((error) => {
+        toast.error(error);
+      });
   };
 
   return (
