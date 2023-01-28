@@ -10,9 +10,9 @@ function HeaderLoggedIn() {
         >
           CASE
         </a>
-        <div className="flex flex-row justify-end items-center m-1 gap-4 lg:gap-6">
-          <LinkButton link="/" text="Videos" />
-          <LinkButton link="/" text="Images" />
+        <div className="flex flex-row justify-end items-center m-1 gap-2 lg:gap-6 w-full">
+          <LinkButton path="/" text="Videos" />
+          <LinkButton path="/" text="Images" />
 
           <input
             type="text"
