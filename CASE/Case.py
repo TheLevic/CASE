@@ -1,12 +1,14 @@
 import speech_recognition as sr
 import pyttsx3
+from picamera2 import Picamera2
 
 
 class Case:
     def __init__(self):
         self.text = '';
         self.name = "case";
-
+        self.camera = Picamera2();
+        
     #Method to speak back to the user
     def speak(self, text: str):
         engine = pyttsx3.init();
