@@ -1,55 +1,44 @@
-import speech_recognition as sr
-import pyttsx3
+import time
+from gpiozero import Button
+from picamera2.encoders import H264Encoder
 from picamera2 import Picamera2
 
-
-class Case:
+class Camera:
     def __init__(self):
-        self.text = '';
-        self.name = "case";
-        self.camera = Picamera2();
-        
-    #Method to speak back to the user
-    def speak(self, text: str):
-        engine = pyttsx3.init();
-        engine.say(text);
-        engine.runAndWait();
+        self.gpio_button_pin = 2
+        self.camera = Picamera2()
+        self.button = Button(self.gpio_button_pin)
+        self.video_config = self.camera.create_video_configuration(main={"size": (1920,1080)})
+        self.camera.configure(self.video_config)
+        self.encoder = H264Encoder(bitrate=6000)
+        self.num = 1;
+        self.name = str(self.num) + ".h264"
 
-    def getText(self):
-        with sr.Microphone() as source:
-            r = sr.Recognizer();
-            print("Say something!");
-            audio = r.record(source, duration=5);
-            self.text = r.recognize_google(audio);
-            print(self.text);
-            return self.text;
+    # Method that will start recording
+    def start_recording(self):
+        self.camera.start_recording(self.encoder,self.name)
+        time.sleep(2)
+        print("Starting to record")
 
-    def startRecording(self):
-        #Recording on the raspberry pi will go here.
-        pass;
+    # Method that will stop recording
+    def stop_recording(self):
+        self.camera.stop_recording()
+        print("Recording Stopped")
+        self.num += 1
+        time.sleep(2)
 
-    def doSomethingWithText(self):
-        options = {"option 1": "start recording"};
-        #We want to check if we said "hey Case start recording"
-        try:
-            if (self.getText() == "hey " + self.name or "hey " + self.name.capitalize()):
-                self.speak("Yes, what do you want me to do?");
-                option = self.getText();
-                if (option == options["option 1"]):
-                    self.speak("Starting to record");
-                    self.startRecording(); 
-            else:
-                self.speak("Sorry, I didn't get that. Please try again.");
-        except:
-            self.speak("Sorry, there was an error. Please try again.");        
-    
+    # Listener that waits for button to call start_recording
+    def start_recording_on_press(self):
+        self.button.wait_for_press()
+        self.start_recording()
+
+    # Listener that waits for button press to call stop_recording
+    def stop_recording_on_press(self):
+        self.button.wait_for_press()
+        self.stop_recording()
 
 if __name__ == "__main__":
-    # We want Case to recognize when someone is talking to him
-
-    #Then we want Case to start recording
-
-    #Once we tell Case to "Stop Recording" he will stop and send the video to the server, have a time limit of 5 minutes
-    #Yes
-    Case = Case();
-    Case.doSomethingWithText();
+    camera = Camera()
+    while (True):
+       camera.start_recording_on_press()  
+       camera.stop_recording_on_press();
