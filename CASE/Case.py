@@ -17,7 +17,7 @@ class Camera:
     # Method that will start recording
     def start_recording(self):
         self.camera.start_recording(self.encoder,self.name)
-        time.sleep()
+        time.sleep(2)
         print("Starting to record")
 
     # Method that will stop recording
