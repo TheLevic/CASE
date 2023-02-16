@@ -27,13 +27,15 @@ class Camera:
         self.num += 1
         self.shouldRecord = False
 
+    def callBack():
+        print("Hello!")
+        time.sleep(2)
+
     def start_recording_on_press(self):
-        if self.button.is_pressed:
-            print("Button was pressed")
+        self.button.when_pressed = self.callBack()
 
     def stop_recording_on_press(self):
-        if self.button.is_pressed:
-            print("Button was pressed from stop")
+        self.button.when_pressed = self.callBack() 
 
 if __name__ == "__main__":
     camera = Camera()
