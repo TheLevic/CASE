@@ -13,12 +13,11 @@ class Camera:
         self.encoder = H264Encoder(bitrate=6000)
         self.num = 1;
         self.name = str(self.num) + ".h264"
-        self.shouldRecord = False
 
     # Method that will start recording
     def start_recording(self):
         self.camera.start_recording(self.encoder,self.name)
-        time.sleep(1)
+        time.sleep()
         print("Starting to record")
 
     # Method that will stop recording
@@ -26,7 +25,7 @@ class Camera:
         self.camera.stop_recording()
         print("Recording Stopped")
         self.num += 1
-        self.shouldRecord = False
+        time.sleep(2)
 
     # Listener that waits for button to call start_recording
     def start_recording_on_press(self):
