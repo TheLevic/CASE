@@ -38,6 +38,6 @@ class Camera:
 if __name__ == "__main__":
     camera = Camera()
     while (True):
-       camera.startRecordingOnPress()  
+       camera.start_recording_on_press()  
        time.sleep(2)
        camera.stop_recording_on_press();
