@@ -1,4 +1,5 @@
 import time
+import os
 from gpiozero import Button
 from picamera2.encoders import H264Encoder
 from picamera2 import Picamera2
@@ -6,22 +7,32 @@ from gpiozero import LED
 
 class Camera:
     def __init__(self):
+        # Button and LED setup 
         self.gpio_button_pin = 2
+        self.button = Button(self.gpio_button_pin)
         self.gpio_led_pin = 17
         self.led = LED(self.gpio_led_pin)
+        
+        #Camera set up
         self.camera = Picamera2()
-        self.button = Button(self.gpio_button_pin)
         self.video_config = self.camera.create_video_configuration(main={"size": (1920,1080)})
         self.camera.configure(self.video_config)
         self.encoder = H264Encoder(bitrate=10000)
         self.num = 1
         self.name = str(self.num) + ".h264"
 
+        #OS setup 
+        self.current_directory = os.getcwd()
+        self.video_directory = os.path.join(self.current_directory, "Videos") 
+
     # Method that will start recording
     def start_recording(self):
-        self.camera.start_recording(self.encoder,self.name)
-        time.sleep(2)
-        print("Starting to record")
+        try:
+            self.camera.start_recording(self.encoder,self.name)
+            time.sleep(2)
+            print("Starting to record")
+        except:
+            print("Error. Can't start recording.")
     
     def turn_on_led(self):
         self.led.on()
@@ -29,6 +40,13 @@ class Camera:
     def turn_off_led(self):
         self.led.off()
         
+    def create_video_directory(self):
+        try:
+            os.mkdir(self.video_directory)
+            return True
+        except:
+            print("Error creating video directory")
+            return False
 
     # Method that will stop recording
     def stop_recording(self):
@@ -51,6 +69,7 @@ class Camera:
 
 if __name__ == "__main__":
     camera = Camera()
+    camera.create_video_directory()
     while (True):
        camera.start_recording_on_press()  
        camera.stop_recording_on_press()
