@@ -33,6 +33,7 @@ class Camera:
     # Method that will stop recording
     def stop_recording(self):
         self.camera.stop_recording()
+        self.turn_off_led()
         print("Recording Stopped")
         self.num += 1
         time.sleep(2)
@@ -47,7 +48,6 @@ class Camera:
     def stop_recording_on_press(self):
         self.button.wait_for_press()
         self.stop_recording()
-        self.turn_off_led()
 
 if __name__ == "__main__":
     camera = Camera()
