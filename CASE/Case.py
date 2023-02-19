@@ -25,7 +25,7 @@ class Camera:
         self.current_directory = os.getcwd()
         self.video_directory = os.path.join(self.current_directory, "Videos") 
 
-    # Method that will start recording
+    #Camera Methods
     def start_recording(self):
         try:
             self.camera.start_recording(self.encoder,self.name)
@@ -34,24 +34,6 @@ class Camera:
         except:
             print("Error. Can't start recording.")
     
-    def turn_on_led(self):
-        self.led.on()
-    
-    def turn_off_led(self):
-        self.led.off()
-        
-    def create_video_directory(self):
-        try:
-            if (os.path.isdir(self.video_directory)):
-                return True
-            else:
-                os.mkdir(self.video_directory)
-                return True
-        except:
-            print("Error creating video directory")
-            return False
-
-    # Method that will stop recording
     def stop_recording(self):
         self.camera.stop_recording()
         self.turn_off_led()
@@ -70,6 +52,30 @@ class Camera:
     def stop_recording_on_press(self):
         self.button.wait_for_press()
         self.stop_recording()
+
+    #LED Methods
+    def turn_on_led(self):
+        self.led.on()
+    
+    def turn_off_led(self):
+        self.led.off()
+        
+    #OS Methods
+    def create_video_directory(self):
+        try:
+            if (os.path.isdir(self.video_directory)):
+                return True
+            else:
+                os.mkdir(self.video_directory)
+                return True
+        except:
+            print("Error creating video directory")
+            return False
+
+    def onStart(self):
+        if os.path.isdir(self.video_directory):
+            num_files = len(os.listdir(self.video_directory));
+            self.num = num_files;
 
 if __name__ == "__main__":
     camera = Camera()
