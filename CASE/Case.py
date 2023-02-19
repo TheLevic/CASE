@@ -75,7 +75,7 @@ class Camera:
     def onStart(self):
         if os.path.isdir(self.video_directory):
             num_files = len(os.listdir(self.video_directory));
-            self.num = num_files;
+            self.num = num_files + 1;
 
 if __name__ == "__main__":
     camera = Camera()
