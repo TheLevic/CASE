@@ -39,7 +39,7 @@ class Camera:
         self.turn_off_led()
         print("Recording Stopped")
         time.sleep(2)
-        os.replace(self.current_directory + "/1.h264", self.video_directory + "/1.h264")
+        os.replace(self.current_directory + "/" + self.name, self.video_directory + "/" + self.name)
         self.num += 1
 
     # Listener that waits for button to call start_recording
