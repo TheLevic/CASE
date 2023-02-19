@@ -80,6 +80,7 @@ class Camera:
 if __name__ == "__main__":
     camera = Camera()
     camera.create_video_directory()
+    camera.onStart()
     while (True):
        camera.start_recording_on_press()  
        camera.stop_recording_on_press()
