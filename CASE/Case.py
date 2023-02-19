@@ -42,8 +42,11 @@ class Camera:
         
     def create_video_directory(self):
         try:
-            os.mkdir(self.video_directory)
-            return True
+            if (os.path.isdir(self.video_directory)):
+                return True
+            else:
+                os.mkdir(self.video_directory)
+                return True
         except:
             print("Error creating video directory")
             return False
@@ -53,8 +56,9 @@ class Camera:
         self.camera.stop_recording()
         self.turn_off_led()
         print("Recording Stopped")
-        self.num += 1
         time.sleep(2)
+        os.replace(self.current_directory + "/1.h264", self.current_directory + self.video_directory + "/1.h264")
+        self.num += 1
 
     # Listener that waits for button to call start_recording
     def start_recording_on_press(self):
