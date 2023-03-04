@@ -11,6 +11,7 @@
 ## Creating CASE
 
 > Case is a personal project that I used to learn the basics of full-stack web-development. Unfortunately, due to being on a student budget and taking a full time course schedule, I was only able to make a proof of concept (shown below). However, I learned a great amount of new knowledge and information.
+> ![Alt text](images/Case.jpg)
 
 ### Technologies Used
 
