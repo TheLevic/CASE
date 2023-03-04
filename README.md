@@ -1,6 +1,6 @@
 # CASE
 
-## Say Hello To The Tiny Self-Imrpovement Robot
+## Say Hello To The Tiny Self-Improvement Robot
 
 ## Installation Guide Coming Soon
 
