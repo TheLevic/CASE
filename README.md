@@ -29,4 +29,4 @@
 
 ### ReactJS:
 
-> I had dabbled in React before this project, but my understanding of the React libray is ten fold what it used to be. I will admit, building front-ends has always been a little bit of a weakness for me. However, I feel more confident after learning different react features such as conditional rendering, states, redux, etc... Tailwindcss helped quite a bit too. I really liked tailwind. It had great documentation, and made mobile first design very simple.l
+> I had dabbled in React before this project, but my understanding of the React libray is ten fold what it used to be. I will admit, building front-ends has always been a little bit of a weakness for me. However, I feel more confident after learning different react features such as conditional rendering, states, redux, etc... Tailwindcss helped quite a bit too. I really liked tailwind. It had great documentation, and made mobile first design very simple.
